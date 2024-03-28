@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>pront-end study week1</title>
+    <meta
+      charset="utf-8"
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <style>
+      table,
+      th,
+      td {
+        border: 2px double #cae4f5;
+        text-align: center;
+      }
+      body {
+        background-color: rgb(40, 40, 40);
+        color: #7d90dd;
+      }
+      input:checked + label {
+        color: #6bc85e;
+      }
+      label {
+        color: #da4c4c;
+      }
+      a {
+        color: rgb(255, 128, 217);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h2><strong>시간표</strong></h2>
+    </header>
+    <p></p>
+    <table>
+      <col style="width: 30px" />
+      <colgroup span="5" style="width: 190px"></colgroup>
+      <caption>
+        <b>1학년 1학기</b>
+      </caption>
+      <thead>
+        <th></th>
+        <th scope="col">월</th>
+        <th scope="col">화</th>
+        <th scope="col">수</th>
+        <th scope="col">목</th>
+        <th scope="col">금</th>
+      </thead>
+      <tr>
+        <td>9</td>
+        <td></td>
+        <td rowspan="4">
+          컴퓨터프로그래밍<br />
+          (공)314호<br />
+          <input type="checkbox" id="1" name="1" onchange="saveChecked()" />
+          <label for="1">과제</label>
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td></td>
+        <td rowspan="3">
+          미적분학<br />
+          (공)135호<br />
+          <input type="checkbox" id="2" name="2" onchange="saveChecked()" />
+          <label for="2">과제</label>
+        </td>
+        <td rowspan="2">
+          선형대수학<br />
+          (공)387호<br />
+          <input type="checkbox" id="3" name="3" onchange="saveChecked()" />
+          <label for="3">과제</label>
+        </td>
+        <td rowspan="2">
+          물리의이해<br />
+          (공)527호<br />
+          <input type="checkbox" id="4" name="4" onchange="saveChecked()" />
+          <label for="4">과제</label>
+        </td>
+      </tr>
+      <tr>
+        <td>11</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>12</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>13</td>
+        <td>
+          발표와토론<br />
+          (종)207호<br />
+          <input type="checkbox" id="5" name="5" onchange="saveChecked()" />
+          <label for="5">과제</label>
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>14</td>
+        <td></td>
+        <td rowspan="2">
+          실험을통한물리의활용<br />
+          (공)524호<br />
+          <input type="checkbox" id="6" name="6" onchange="saveChecked()" />
+          <label for="6">과제</label>
+        </td>
+        <td rowspan="3">
+          공학개론<br />
+          (공)509호<br />
+          <input type="checkbox" id="7" name="7" onchange="saveChecked()" />
+          <label for="7">과제</label>
+        </td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>15</td>
+        <td></td>
+        <td></td>
+        <td rowspan="2">
+          KMOU English<br />
+          (공)131호<br />
+          <input type="checkbox" id="8" name="8" onchange="saveChecked()" />
+          <label for="8">과제</label>
+        </td>
+      </tr>
+      <tr>
+        <td>16</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>17</td>
+        <td rowspan="2">
+          IDEA Factory<br />
+          (공)108호<br />
+          <input type="checkbox" id="9" name="9" onchange="saveChecked()" />
+          <label for="9">과제</label>
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>18</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+  </body>
+  <script>
+    function loadChecked() {
+      var inputs = document.getElementsByTagName('input');
+      for (var i = 0; i < inputs.length; i++) {
+        var name = inputs[i].name;
+        var isChecked = localStorage.getItem(name);
+        if (isChecked === 'true') {
+          inputs[i].checked = true;
+        }
+      }
+    }
+
+    function saveChecked() {
+      var inputs = document.getElementsByTagName('input');
+      for (var i = 0; i < inputs.length; i++) {
+        var name = inputs[i].name;
+        localStorage.setItem(name, inputs[i].checked);
+      }
+    }
+
+    window.onload = loadChecked;
+  </script>
+</html>
